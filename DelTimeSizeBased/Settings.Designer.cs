@@ -38,9 +38,9 @@ namespace DelTimeSizeBased {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("6000000")]
-        public int BigBytes {
+        public long BigBytes {
             get {
-                return ((int)(this["BigBytes"]));
+                return ((long)(this["BigBytes"]));
             }
             set {
                 this["BigBytes"] = value;

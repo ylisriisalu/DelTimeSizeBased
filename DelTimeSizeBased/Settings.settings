@@ -5,7 +5,7 @@
     <Setting Name="dir" Type="System.String" Scope="User">
       <Value Profile="(Default)">D:\SQLBackup</Value>
     </Setting>
-    <Setting Name="BigBytes" Type="System.Int32" Scope="User">
+    <Setting Name="BigBytes" Type="System.Int64" Scope="User">
       <Value Profile="(Default)">6000000</Value>
     </Setting>
     <Setting Name="BigCount" Type="System.Int32" Scope="User">
