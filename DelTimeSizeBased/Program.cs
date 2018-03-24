@@ -53,7 +53,7 @@ namespace DelTimeSizeBased
                             }
                             catch(Exception ex)
                             {
-                                Console.WriteLine("Ei õnnestunud kustutada: " + f.Name);
+                                Console.WriteLine("Ei õnnestunud kustutada: " + f.Name + "\n" + ex.Message);
                             }
 
                             
