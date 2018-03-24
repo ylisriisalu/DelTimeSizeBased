@@ -39,7 +39,26 @@ namespace DelTimeSizeBased
                 string status = "[ OK  ]";
                 foreach (FileInfo f in dirinfo.GetFiles().OrderByDescending(t => t.LastWriteTime))
                 {
-                    if (countdown <= 0) { status = "[ DEL ]"; }
+                    if (countdown <= 0)
+                    {
+                        status = "[ DEL ]";
+                        if (!Dryrun)
+                        {
+                            // reaalselt kustutame
+                            try
+                            {
+                                f.Delete();
+                                GC.Collect();
+                                GC.WaitForPendingFinalizers();
+                            }
+                            catch(Exception ex)
+                            {
+                                Console.WriteLine("Ei õnnestunud kustutada: " + f.Name);
+                            }
+
+                            
+                        }
+                    }
                     if (f.Length > Settings.Default.BigBytes) { countdown--; }
                     
 
@@ -50,7 +69,7 @@ namespace DelTimeSizeBased
             else { Console.WriteLine(string.Format(" Cant find Directory \"{0}\" ", Settings.Default.dir)); }
 
 
-            Console.ReadKey();
+            // Console.ReadKey();
         }
     }
 }
